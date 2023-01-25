@@ -18,11 +18,18 @@ let database = {
 
 const server =  http.createServer((req , res)=> {
     console.log(req.url);
-    if(req.url == 'api/users'){
+    if(req.url == '/api/users'){
         let users = database.users;
-        res.write(json(users));
+        res.write(JSON.stringify(users));
+        res.end();
+    }else if (req.url == '/api/courses'){
+        let courses = database.courses;
+        res.write(JSON.stringify(courses));
+        res.end();
+    }else{
+        res.write("Error 404 API not found");
     }
-    res.end();
+ 
 });
 
 server.listen(3000);
