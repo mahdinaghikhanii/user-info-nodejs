@@ -1,6 +1,6 @@
 const { json } = require('express');
 const http = require('http');
-const url = require('url');
+const url = require('url'); 
 
 let database = {
    users : [
@@ -26,7 +26,8 @@ const server =  http.createServer((req , res)=> {
         let courses = database.courses;
         res.write(JSON.stringify(courses));
         res.end();
-    }else{
+    }
+    else{
         res.write("Error 404 API not found =(");
         res.end();
     }
